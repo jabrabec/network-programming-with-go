@@ -32,13 +32,17 @@ func handleClient(conn net.Conn) {
 	// close connection on exit
 	defer conn.Close()
 
-	var buf [512]byte
+	// var buf [512]byte
+	var buf [4096]byte
 	for {
-		// read up to 512 bytes
+		// // read up to 512 bytes
+		// read up to 4096 bytes
 		n, err := conn.Read(buf[0:])
 		if err != nil {
 			return
 		}
+		// fmt.Printf("%s", buf)
+		fmt.Print(buf[0:n])
 
 		// write the n bytes read
 		_, err2 := conn.Write(buf[0:n])
