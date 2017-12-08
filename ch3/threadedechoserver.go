@@ -41,8 +41,8 @@ func handleClient(conn net.Conn) {
 		if err != nil {
 			return
 		}
-		// fmt.Printf("%s", buf)
-		fmt.Print(buf[0:n])
+		fmt.Printf("%s", buf[0:n])
+		// fmt.Print(buf[0:n])
 
 		// write the n bytes read
 		_, err2 := conn.Write(buf[0:n])
